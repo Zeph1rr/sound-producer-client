@@ -4,7 +4,6 @@ import pyaudio
 import wave
 import requests
 
-from requests_toolbelt import MultipartEncoder
 from vosk import Model, KaldiRecognizer, SpkModel
 from time import time
 from os import makedirs
@@ -79,6 +78,7 @@ class App:
             if self.recognize():
                 self.prepare_data()
             if self.is_creating_speaker:
+                self.is_creating_speaker = False
                 print(self.save_speaker_data())
                 return
             self.save_file()
