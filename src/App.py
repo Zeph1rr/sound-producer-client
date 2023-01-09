@@ -89,7 +89,7 @@ class App:
 
     def toggle_recording(self):
         self.is_recording = not self.is_recording
-        self.ui.record_button['text'] = "Stop recording" if self.is_recording else "Start recording"
+        self.ui.record_button['text'] = "Завершить запись" if self.is_recording else "Начать запись"
         if self.is_recording:
             self.open_audio_stream()
             self.record()
@@ -105,7 +105,7 @@ class App:
         if not response.ok:
             self.ui.status_label.config(text=response.text, foreground="#FF0000")
         else:
-            self.ui.status_label.config(text="Successfully sent!", foreground="#006400")
+            self.ui.status_label.config(text="Успешно отправлено!", foreground="#006400")
 
     def create_speaker(self):
         self.is_creating_speaker = True
@@ -125,7 +125,7 @@ class App:
         sound_file.setframerate(44100)
         sound_file.writeframes(b''.join(self.frames))
         sound_file.close()
-        self.ui.current_file_label['text'] = "Last file: " + file_name
+        self.ui.current_file_label['text'] = "Последний файл: " + file_name
         self.file = file_name
 
     def recognize(self):

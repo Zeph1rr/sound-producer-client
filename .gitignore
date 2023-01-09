@@ -3,3 +3,4 @@ dist
 records
 *.spec
 venv
+speakers
