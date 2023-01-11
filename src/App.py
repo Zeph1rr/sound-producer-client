@@ -100,7 +100,8 @@ class App:
         }
 
     def send_data(self):
-        url = "http://" + self.ui.url.get() + ":65525"
+        url = self.ui.url.get()
+        print(url)
         response = requests.post(url, data=self.recognizing_result, files=self.prepared_data)
         if not response.ok:
             self.ui.status_label.config(text=response.text, foreground="#FF0000")
